@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badral's Coffee Shop Menu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            background-color: #3f3f3f;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .menu-item {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative; /* Add position relative */
+        }
+        .menu-item h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .menu-item p {
+            font-size: 1.2rem;
+        }
+        .menu-item .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3300ff;
+        }
+        .jumbotron {
+            background-image: url('./images/background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            margin-bottom: 0; /* Remove margin bottom to avoid space */
+            position: relative;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .jumbotron .lead {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .jumbotron .btn {
+            font-size: 1.25rem;
+            padding: 10px 30px;
+        }
+        .image-container {
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0); /* Fully transparent initially */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+
+        .image-container:hover .overlay {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+        }
+
+        /* CSS for images */
+        .menu-item img {
+            max-width: 100%;
+            height: 200px; /* Set a specific height for the images */
+            display: block; /* Ensures proper spacing */
+            margin: 0 auto; /* Centers the images */
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Badral's Coffee Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#menu">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-coffee">About the Coffee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid image-container">
+    <div class="container">
+        <h1 class="display-4">Welcome to Badral's Coffee Shop</h1>
+        <p class="lead">Have a nice day!</p>
+        <a class="btn btn-danger btn-lg" href="#" role="button">View Menu</a>
+        <div class="overlay"></div>
+    </div>
+</div>
+
+<section id="menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="menu-item">
+                    <img src="./images/espresso.jpg" alt="Espresso" data-toggle="modal" data-target="#espressoModal">
+                    <h2>Espresso</h2>
+                    <p>Strong and rich coffee.</p>
+                    <p class="price">$6</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="menu-item">
+                    <img src="./images/cake.jpg" alt="Coffee Cake" data-toggle="modal" data-target="#cakeModal">
+                    <h2>Coffee Cake</h2>
+                    <p>Moist and flavorful coffee-infused cake.</p>
+                    <p class="price">$12.5</p>
+                </div>
+            </div>            
+            <div class="col-md-6">
+                <div class="menu-item">
+                    <img src="./images/cappucino.jpg" alt="Cappuccino" data-toggle="modal" data-target="#cappuccinoModal">
+                    <h2>Cappuccino</h2>
+                    <p>Espresso with steamed milk.</p>
+                    <p class="price">$6.99</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="menu-item">
+                    <img src="./images/mocha.jpg" alt="Mocha" data-toggle="modal" data-target="#mochaModal">
+                    <h2>Mocha</h2>
+                    <p>Espresso with chocolate and steamed milk.</p>
+                    <p class="price">$7 .49</p>
+                </div>
+            </div>            
+        </div>
+    </div>
+</section>
+
+<!-- Modals for each coffee item -->
+<!-- Espresso Modal -->
+<div class="modal fade" id="espressoModal" tabindex="-1" aria-labelledby="espressoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="espressoModalLabel">Espresso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <img src="espresso.jpg" alt="Espresso" class="img-fluid">
+                    <p>Strong and rich coffee.</p>
+                    <p class="price">$6</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Coffee Cake Modal -->
+    <div class="modal fade" id="cakeModal" tabindex="-1" aria-labelledby="cakeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cakeModalLabel">Coffee Cake</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="./cake.jpg" alt="Coffee Cake" class="img-fluid">
+                    <p>Moist and flavorful coffee-infused cake.</p>
+                    <p class="price">$12.5</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cappuccino Modal -->
+    <div class="modal fade" id="cappuccinoModal" tabindex="-1" aria-labelledby="cappuccinoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cappuccinoModalLabel">Cappuccino</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="cappuccino.jpg" alt="Cappuccino" class="img-fluid">
+                    <p>Espresso with steamed milk.</p>
+                    <p class="price">$6.99</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mocha Modal -->
+    <div class="modal fade" id="mochaModal" tabindex="-1" aria-labelledby="mochaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mochaModalLabel">Mocha</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="mocha.jpg" alt="Mocha" class="img-fluid">
+                    <p>Espresso with chocolate and steamed milk.</p>
+                    <p class="price">$7 .49</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- About the Coffee Section -->
+    <section id="about-coffee">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <h2>About the Coffee</h2>
+                    <p>Learn all about our amazing coffee beans, brewing methods, and more!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Us Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <h2>Contact Us</h2>
+                    <p>Have a question or feedback? Feel free to reach out to us!</p>
+                    <p>Email: info@badralscoffeeshop.com</p>
+                    <p>Phone: +1234567890</p>
+                    <p>Address: UB, Mongolia </p>
+                    <!-- Social links -->
+                    <div class="social-links text-center">
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-youtube"></i>
+                        <i class="fab fa-pinterest-p"></i>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+    </html>
